@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 
 class UserController extends Controller
@@ -44,11 +45,7 @@ class UserController extends Controller
     public function userAdd(Request $request) {
         $res = $this->model->add($request);
         if(is_bool($res)) {
-            $users = $this->model->getList();
-            return view('user.users', [
-                'title' => "Список пользователей",
-                'users' => $users
-            ]);
+            return Redirect::to('/users/');
         } else {
             return view('registration', [
                 'title' => "Регистрация",
@@ -60,11 +57,7 @@ class UserController extends Controller
     public function userUpdate(Request $request) {
         $res = $this->model->updateInfo($request);
         if(is_int($res)) {
-            $users = $this->model->getList();
-            return view('user.users', [
-                'title' => "Список пользователей",
-                'users' => $users
-            ]);
+            return Redirect::to('/users/');
         } else {
             return view('user.update', [
                 'title' => "Изменить данные пользователя",
@@ -77,11 +70,7 @@ class UserController extends Controller
         $res = $this->model->updatePass($request);
 
         if(is_int($res)) {
-            $users = $this->model->getList();
-            return view('user.users', [
-                'title' => "Список пользователей",
-                'users' => $users
-            ]);
+            return Redirect::to('/users/');
         } else {
             return view('user.update_pass', [
                 'title' => "Изменить данные пользователя",

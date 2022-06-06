@@ -5,6 +5,7 @@ services:
     image: php:8.0.3-apache
     ports:
       - "8001:80"
+    working_dir: /var/www/html
     volumes:
       - ./www:/var/www/html
     links:

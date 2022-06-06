@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\LoginController;
 
 /*
@@ -16,7 +17,6 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/', function () { return view('main', ['title' => 'Главная']); })->name('main');
-Route::get('/message/', function () { return view('chat.message', ['title' => 'Главная']); })->name('main');
 Route::get('/registration/', function () { return view('registration', ['title' => 'Регистрация']); });
 
 Route::get('/user/show/update/', function () { return view('user.update', ['title' => 'Изменение данных пользователя']); })->middleware('auth');
@@ -29,3 +29,6 @@ Route::post('/user/add/', [UserController::class, 'userAdd']);
 Route::post('/user/update/', [UserController::class, 'userUpdate'])->middleware('auth');
 Route::post('/user/update-pass/', [UserController::class, 'userUpdatePass'])->middleware('auth');
 Route::get('/user/delete/', [UserController::class, 'userDelete'])->middleware('auth');
+
+Route::get('/message/', [ChatController::class, 'index'])->name('message');
+

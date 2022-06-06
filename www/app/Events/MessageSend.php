@@ -10,21 +10,18 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class TranslationEvent
+class MessageSend
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $id;
     public $message;
-
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($id, $message)
+    public function __construct($message)
     {
-        $this->id = $id;
         $this->message = $message;
     }
 
@@ -35,7 +32,6 @@ class TranslationEvent
      */
     public function broadcastOn()
     {
-        /*return new PrivateChannel('channel-name');*/
-        return new Channel('translation.' . $this->id);
+        return new Channel('chatbox');
     }
 }

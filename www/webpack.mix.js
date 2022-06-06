@@ -19,7 +19,8 @@ mix.styles([
 
 ], 'public/css/styles.css');
 
-/*mix.scripts([
-    'resources/assets/js/notification/SmartNotification.min.js',
-    // Другие js скрипты
-], 'public/js/scripts.js');*/
+mix.scripts([
+    'resources/js/app.js',
+    'resources/js/bootstrap.js',
+
+], 'public/js/scripts.js');
