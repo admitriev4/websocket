@@ -1,13 +1,13 @@
 {
-	"authHost": "http://localhost:8001",
+	"authHost": "http://localhost",
 	"authEndpoint": "/broadcasting/auth",
 	"clients": [
 		{
-			"appId": "2ba6f1565820891c",
-			"key": "09c653d6d7c5eb2a88c5ac0d026dcabf"
+			"appId": "723f1cd86e8af5d9",
+			"key": "25b1d1bd0796e2e548225564161acf0d"
 		}
 	],
-	"database": "redis",
+	"database": "sqlite",
 	"databaseConfig": {
 		"redis": {},
 		"sqlite": {
@@ -16,7 +16,7 @@
 	},
 	"devMode": true,
 	"host": null,
-	"port": "6379",
+	"port": "6001",
 	"protocol": "http",
 	"socketio": {},
 	"secureOptions": 67108864,

@@ -1,7 +1,9 @@
 version: "2"
 services:
   www:
-    build: .
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
     image: php:8.0.3-apache
     ports:
       - "8001:80"
