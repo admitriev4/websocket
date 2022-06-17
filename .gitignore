@@ -1,2 +1,4 @@
-/.idea
-.gitignore
+/.idea/
+/.gitignore
+/www/laravel-echo-server.lock
+/www/laravel-echo-server.json

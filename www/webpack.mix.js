@@ -11,7 +11,6 @@ const mix = require('laravel-mix');
  |
  */
 
-
 mix.styles([
     'resources/css/styles.css',
     'resources/css/template-styles.css'
@@ -19,8 +18,5 @@ mix.styles([
 
 ], 'public/css/styles.css');
 
-mix.scripts([
-    'resources/js/app.js',
-    'resources/js/bootstrap.js',
+mix.js('resources/js/app.js', 'public/js').vue().extract(['laravel-echo']);
 
-], 'public/js/scripts.js');

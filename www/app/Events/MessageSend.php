@@ -20,8 +20,9 @@ class MessageSend
      *
      * @return void
      */
-    public function __construct($message)
+    public function __construct($id, $message)
     {
+        $this->id = $id;
         $this->message = $message;
     }
 
@@ -32,6 +33,6 @@ class MessageSend
      */
     public function broadcastOn()
     {
-        return new Channel('chatbox');
+        return new Channel('chat');
     }
 }

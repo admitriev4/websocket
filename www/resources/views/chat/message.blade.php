@@ -1,9 +1,18 @@
-@include('template.header')
-<script src="/js/scripts.js" defer></script>
-<div class="wrapper main-container">
-    <div id="app">
-        <chatbox-component></chatbox-component>
-    </div>
-</div>
+@extends('layouts.app')
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Translation <span class="btn btn-primary">{{ $id }}</span></div>
 
-@include('template.footer')
+                    <div class="card-body">
+                        <translation-component
+                            :translation_id="{{ $id }}"
+                        ></translation-component>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
