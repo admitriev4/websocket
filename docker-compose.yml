@@ -5,6 +5,7 @@ services:
       context: ./docker/php
       dockerfile: Dockerfile
     image: php:8.0.3-apache
+    hostname: chat
     ports:
       - 8001:80
     working_dir: /var/www/html
@@ -17,6 +18,7 @@ services:
       - default
   db:
     image: mysql
+    hostname: chat_db
     ports:
       - 3306:3306
     environment:
@@ -30,10 +32,11 @@ services:
       - default
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    hostname: chat_pma
     links:
       - db:db
     ports:
-      - 8000:80
+      - 8000:8000
     environment:
       MYSQL_USER: user
       MYSQL_PASSWORD: test
@@ -41,10 +44,27 @@ services:
     networks:
       - default
   nginx:
-    image: nginx
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
+    image: nginx:alpine
+    hostname: chat_nginx
+    container_name: webservers
+    links:
+      - websocket:websocket
     ports:
-      - 80:80
-    volumes:
-      - ./conf/nginx.conf:/etc/nginx/nginx.conf
+      - 443:443
+    networks:
+        - default
+  websocket:
+    build:
+      context: ./docker/node
+      dockerfile: Dockerfile
+    image: node
+    hostname: chat
+    ports:
+      - 6001:6001
+    networks:
+      - default
 volumes:
   persistent:
