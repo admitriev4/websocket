@@ -14,6 +14,7 @@ services:
     links:
       - db:db
       - nginx:nginx
+      - websocket:websocket
     networks:
       - default
   db:
@@ -56,12 +57,24 @@ services:
       - 443:443
     networks:
         - default
+  redis:
+    build:
+      context: ./docker/redis
+      dockerfile: Dockerfile
+    image: redis
+    container_name: chat_redis
+    ports:
+      - 6379:6379
   websocket:
     build:
       context: ./docker/node
       dockerfile: Dockerfile
     image: node
-    hostname: chat
+    hostname: chat_node
+    links:
+      - redis:redis
+    volumes:
+      - ./www:/var/www/html
     ports:
       - 6001:6001
     networks:
