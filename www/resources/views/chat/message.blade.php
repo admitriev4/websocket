@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Translation <span class="btn btn-primary">{{ $id }}</span></div>
+                    <div class="card-header">Трансляция <span class="btn btn-primary">{{ $id }}</span></div>
 
                     <div class="card-body">
                         <translation-component
