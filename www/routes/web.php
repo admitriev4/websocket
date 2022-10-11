@@ -31,4 +31,6 @@ Route::post('/user/update-pass/', [UserController::class, 'userUpdatePass'])->mi
 Route::get('/user/delete/', [UserController::class, 'userDelete'])->middleware('auth');
 
 Route::get('/message/{id}', [ChatController::class, 'index'])->name('message');
+Route::get('/message/', [ChatController::class, 'message'])->name('message');
+
 

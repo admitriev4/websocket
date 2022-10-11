@@ -24,7 +24,8 @@ export default {
 
     created() {
         Echo.channel(`translation.${this.translation_id}`)
-            .listen('TranslationEvent', (e) => {
+            .listen('MessageSend', (e) => {
+                console.log('eeeeeeee')
                 this.messages.push(e)
             });
     }

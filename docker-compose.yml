@@ -57,12 +57,17 @@ services:
       - 443:443
     networks:
         - default
-  redis:
+  redis-chat:
     build:
       context: ./docker/redis
       dockerfile: Dockerfile
     image: redis
     container_name: chat_redis
+    volumes:
+      - ./docker/redis/data:/data
+    restart: always
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
     ports:
       - 6379:6379
   websocket:
@@ -70,9 +75,10 @@ services:
       context: ./docker/node
       dockerfile: Dockerfile
     image: node
+    restart: always
     hostname: chat_node
     links:
-      - redis:redis
+      - redis-chat:redis-chat
     volumes:
       - ./www:/var/www/html
     ports:

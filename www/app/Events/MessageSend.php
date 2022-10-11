@@ -10,10 +10,11 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class MessageSend
+class MessageSend implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $id;
     public $message;
     /**
      * Create a new event instance.
@@ -33,6 +34,6 @@ class MessageSend
      */
     public function broadcastOn()
     {
-        return new Channel('chat');
+        return new Channel('translation.' . $this->id);
     }
 }
