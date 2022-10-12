@@ -32,5 +32,6 @@ Route::get('/user/delete/', [UserController::class, 'userDelete'])->middleware('
 
 Route::get('/message/{id}', [ChatController::class, 'index'])->name('message');
 Route::get('/message/', [ChatController::class, 'message'])->name('message');
+Route::get('/fire', function () { event(new \App\Events\TestEvent()); return 'ok'; });
 
 

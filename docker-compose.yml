@@ -57,7 +57,7 @@ services:
       - 443:443
     networks:
         - default
-  redis-chat:
+  redis:
     build:
       context: ./docker/redis
       dockerfile: Dockerfile
@@ -78,7 +78,7 @@ services:
     restart: always
     hostname: chat_node
     links:
-      - redis-chat:redis-chat
+      - redis:redis
     volumes:
       - ./www:/var/www/html
     ports:
