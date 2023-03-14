@@ -23,7 +23,7 @@
         <div class="menu">
             @if (!empty(Auth::user()))
                 <a href="/users/" class="btn">Список пользователей</a>
-                <a href="/message/1" class="btn">Чат</a>
+                <a href="/message/" class="btn">Чат</a>
                 <a href="/user/show/update/" class="btn">Изменить данные пользователя</a>
                 <a href="/user/show/delete/" class="btn">Удалить пользователя</a>
                 @else

@@ -14,6 +14,8 @@
 </template>
 
 <script>
+console.log('test123')
+
 export default {
     props: ['translation_id'],
     data() {
@@ -23,6 +25,7 @@ export default {
     },
 
     created() {
+        console.log(this.translation_id)
         Echo.channel(`translation.${this.translation_id}`)
             .listen('MessageSend', (e) => {
                 console.log('eeeeeeee')

@@ -12,7 +12,7 @@ class TranslationMessage extends Command
      *
      * @var string
      */
-    protected $signature = 'translation:messages {id} {message}';
+    protected $signature = 'translation:messages {message}';
 
     /**
      * The console command description.
@@ -39,8 +39,7 @@ class TranslationMessage extends Command
     public function handle()
     {
         event(new MessageSend(
-                $this->argument('id'),
-                $this->argument('message'))
+            $this->argument('message'))
         );
     }
 }

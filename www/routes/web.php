@@ -30,8 +30,8 @@ Route::post('/user/update/', [UserController::class, 'userUpdate'])->middleware(
 Route::post('/user/update-pass/', [UserController::class, 'userUpdatePass'])->middleware('auth');
 Route::get('/user/delete/', [UserController::class, 'userDelete'])->middleware('auth');
 
-Route::get('/message/{id}', [ChatController::class, 'index'])->name('message');
-Route::get('/message/', [ChatController::class, 'message'])->name('message');
+Route::get('/message/', [ChatController::class, 'index'])->name('message');
+
 Route::get('/fire', function () { event(new \App\Events\TestEvent()); return 'ok'; });
 
 

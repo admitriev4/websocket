@@ -4,12 +4,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Трансляция <span class="btn btn-primary">{{ $id }}</span></div>
+                    <div class="card-header">Трансляция <span class="btn btn-primary"></span></div>
 
                     <div class="card-body">
-                        <translation-component
-                            :translation_id="{{ $id }}"
-                        ></translation-component>
+                        <translation-component></translation-component>
                     </div>
                 </div>
             </div>

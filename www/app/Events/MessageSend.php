@@ -14,16 +14,16 @@ class MessageSend implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $id;
+
     public $message;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($id, $message)
+    public function __construct($message)
     {
-        $this->id = $id;
+
         $this->message = $message;
     }
 
@@ -34,6 +34,6 @@ class MessageSend implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('translation.' . $this->id);
+        return new Channel('translation');
     }
 }
