@@ -12,7 +12,7 @@ class TranslationMessage extends Command
      *
      * @var string
      */
-    protected $signature = 'translation:messages {message}';
+    protected $signature = 'translation {message}';
 
     /**
      * The console command description.

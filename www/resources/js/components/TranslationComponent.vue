@@ -1,5 +1,5 @@
 <template>
-    <div class="alert alert-warning">
+    <div class="alert alert-warning" id="app">
         <div v-if="messages.length < 1">
             Beginning translation...
         </div>
@@ -14,26 +14,21 @@
 </template>
 
 <script>
-console.log('test123')
-
 export default {
-    props: ['translation_id'],
+    el: "#app",
     data() {
         return {
             messages: []
         }
     },
-
     created() {
-        console.log(this.translation_id)
-        Echo.channel(`translation.${this.translation_id}`)
+        console.log('ddd')
+        /*Echo.channel(`laravel_database_translation`)
             .listen('MessageSend', (e) => {
                 console.log('eeeeeeee')
                 this.messages.push(e)
-            });
+            });*/
     }
 }
 </script>
-
-<style scoped></style>
 
