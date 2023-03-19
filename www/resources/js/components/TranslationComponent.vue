@@ -22,21 +22,10 @@ export default {
         }
     },
     mounted() {
-        console.log(Echo.channel('translation'))
         Echo.channel('translation').listen('MessageSend', (e) => {
-                console.log('eeeeeeee')
                 this.messages.push(e)
         });
     }
-
-    /*mounted() {
-
-        Echo.channel(`laravel_database_translation`)
-            .listen('.MessageSend', (e) => {
-                console.log('eeeeeeee')
-                this.messages.push(e)
-            });
-    }*/
 }
 </script>
 
